@@ -1,4 +1,4 @@
-# test_app.py
+import pytest
 from app import add, subtract, multiply, divide
 
 def test_add():
@@ -16,4 +16,5 @@ def test_multiply():
 def test_divide():
     assert divide(6, 3) == 2
     assert divide(5, 2) == 2.5
-    assert divide(5, 0) == 0  # This will intentionally fail!
+    with pytest.raises(ValueError):
+        divide(5, 0)
